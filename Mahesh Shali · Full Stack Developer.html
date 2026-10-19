@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Mahesh Shali · Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Full stack developer in Bengaluru building web apps and APIs with React, C# and ASP.NET Core, and learning machine learning, deep learning and GenAI."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fafaf9;
+        --card: #fff;
+        --text: #1c1917;
+        --muted: #57534e;
+        --line: #e7e5e4;
+        --accent: #4f46e5;
+        --soft: #eef2ff;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0c0a09;
+          --card: #171413;
+          --text: #f5f5f4;
+          --muted: #a8a29e;
+          --line: #292524;
+          --accent: #818cf8;
+          --soft: #1e1b3a;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0c0a09;
+        --card: #171413;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --line: #292524;
+        --accent: #818cf8;
+        --soft: #1e1b3a;
+        color-scheme: dark;
+      }
+      :root {
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.65;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      nav b {
+        color: var(--text);
+        font-size: 15px;
+      }
+      nav div {
+        display: flex;
+        gap: 18px;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      section {
+        padding: 44px 0 4px;
+      }
+      h1 {
+        font-size: clamp(34px, 7vw, 50px);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin: 8px 0 14px;
+      }
+      h1 span {
+        color: var(--accent);
+      }
+      h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin: 0 0 18px;
+      }
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+      .lead {
+        font-size: 18px;
+        max-width: 600px;
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .btn {
+        padding: 10px 18px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .btn.p {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--bg);
+      }
+      .learn {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: var(--soft);
+        color: var(--accent);
+        font-size: 13.5px;
+        font-weight: 500;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        padding: 4px 12px;
+        border-radius: 8px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        font-size: 13.5px;
+      }
+      .chip.l {
+        background: var(--soft);
+        border-color: transparent;
+        color: var(--accent);
+      }
+      .row {
+        margin-bottom: 16px;
+      }
+      .row small {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .job {
+        padding: 0 0 22px 20px;
+        border-left: 2px solid var(--line);
+        margin-left: 4px;
+        position: relative;
+      }
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid var(--bg);
+      }
+      .job h3 {
+        margin: 0;
+        font-size: 16.5px;
+      }
+      .job small {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .job ul {
+        margin: 6px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .card:hover {
+        border-color: var(--accent);
+      }
+      .card h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+      }
+      .card p {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .card small {
+        color: var(--accent);
+        font-size: 12.5px;
+      }
+      .avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        font-weight: 700;
+        box-shadow:
+          0 0 0 3px var(--bg),
+          0 0 0 5px var(--accent);
+        overflow: hidden;
+        margin: 6px 0 24px 5px;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      footer {
+        padding: 44px 0 36px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <b>Mahesh E</b>
+        <div>
+          <a href="#experience">Experience</a><a href="#projects">Projects</a
+          ><a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section>
+        <div class="avatar" role="img" aria-label="Mahesh E">MS</div>
+        <h1>
+          Full Stack Developer building<br /><span>reliable web apps.</span>
+        </h1>
+        <p class="lead">
+          I’m a full stack developer in Bengaluru with 3+ years of experience. I
+          build web apps, APIs and business applications, from React and
+          JavaScript front ends to C# and ASP.NET Core backends, and I’m now
+          studying machine learning, deep learning and generative AI.
+        </p>
+        <span class="learn"
+          >Currently learning: Machine Learning · Deep Learning · GenAI</span
+        >
+        <div class="btns">
+          <a class="btn p" href="mailto:maheshshali10@gmail.com">Get in touch</a
+          ><a
+            class="btn"
+            href="https://github.com/mahesh-shali"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          ><a
+            class="btn"
+            href="https://www.linkedin.com/in/mahesh-e-807121271/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="row">
+          <small>Front end</small>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">JavaScript</span
+            ><span class="chip">TypeScript</span
+            ><span class="chip">HTML5 · CSS3</span
+            ><span class="chip">Tailwind CSS</span
+            ><span class="chip">Bootstrap</span>
+          </div>
+        </div>
+        <div class="row">
+          <small>Back end &amp; data</small>
+          <div class="chips">
+            <span class="chip">C#</span
+            ><span class="chip">ASP.NET Core Web API</span
+            ><span class="chip">WinForms</span
+            ><span class="chip">SQL Server</span
+            ><span class="chip">PostgreSQL</span><span class="chip">Redis</span
+            ><span class="chip">REST APIs</span
+            ><span class="chip">JWT auth</span><span class="chip">Git</span
+            ><span class="chip">Docker</span>
+          </div>
+        </div>
+        <div class="row">
+          <small>Also worked with</small>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">FastAPI</span
+            ><span class="chip">Java</span><span class="chip">Go</span
+            ><span class="chip">Node.js</span
+            ><span class="chip">Express.js</span><span class="chip">MySQL</span
+            ><span class="chip">AWS</span>
+          </div>
+        </div>
+        <div class="row">
+          <small>Learning</small>
+          <div class="chips">
+            <span class="chip l">Machine Learning</span
+            ><span class="chip l">Deep Learning</span
+            ><span class="chip l">Generative AI</span
+            ><span class="chip l">LangChain</span
+            ><span class="chip l">LangGraph</span
+            ><span class="chip l">PyTorch</span
+            ><span class="chip l">Scikit-learn</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="job">
+          <h3>Software Engineer · Bhargavi Soft-Tech</h3>
+          <small>Nov 2024 – Present · Bengaluru</small>
+          <ul>
+            <li>Started on desktop applications with C# and WinForms.</li>
+            <li>
+              Moved into backend work, building REST APIs with ASP.NET Core Web
+              API and SQL Server.
+            </li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Associate AI Developer · Freelancer.com</h3>
+          <small>Jun 2024 – Nov 2024 · Remote</small>
+          <ul>
+            <li>
+              Built a LangChain, OpenAI API and MySQL application on FastAPI
+              that cut response times by 70%.
+            </li>
+            <li>Added an agent that automates data retrieval.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Product Developer · PESU Venture Labs</h3>
+          <small>Jun 2023 – Apr 2024 · Bengaluru</small>
+          <ul>
+            <li>
+              Led a database migration and API development, improving data
+              retrieval efficiency by 30%.
+            </li>
+            <li>
+              Tested APIs with Postman and JMeter, reducing downtime by 15%.
+            </li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Associate Full Stack Developer (Intern) · Leantech Labs</h3>
+          <small>Nov 2022 – May 2023 · Bengaluru</small>
+          <ul>
+            <li>
+              Built responsive web apps with JavaScript, HTML5, CSS3 and
+              Bootstrap, and Node.js and Express.js server logic.
+            </li>
+          </ul>
+        </div>
+        <p>
+          <b style="color: var(--text)">Education:</b> Bachelor of Computer
+          Science, MES College of Arts, Science &amp; Commerce (2018–2022).
+          Certificate: Python Full Stack Web Developer, Testyantra (2022).
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <a
+            class="card"
+            href="https://github.com/mahesh-shali"
+            target="_blank"
+            rel="noopener"
+            ><h3>ERP Web API (C#)</h3>
+            <p>
+              A backend API for an ERP system, with Redis caching in front of
+              PostgreSQL for faster reads.
+            </p>
+            <small>C# · ASP.NET Core · PostgreSQL · Redis</small></a
+          >
+          <a
+            class="card"
+            href="https://github.com/mahesh-shali"
+            target="_blank"
+            rel="noopener"
+            ><h3>Role-based authentication (C#)</h3>
+            <p>
+              Secure login and permissions with JWT, secure cookies and Redis
+              caching.
+            </p>
+            <small>C# · ASP.NET Core · JWT · Redis</small></a
+          >
+          <a
+            class="card"
+            href="https://github.com/mahesh-shali"
+            target="_blank"
+            rel="noopener"
+            ><h3>AI ERP system</h3>
+            <p>An ERP platform I’m building, with an AI agent layer on top.</p>
+            <small>ASP.NET Core · PostgreSQL · LangGraph</small></a
+          >
+          <a
+            class="card"
+            href="https://github.com/mahesh-shali"
+            target="_blank"
+            rel="noopener"
+            ><h3>Natural-language database assistant</h3>
+            <p>
+              Ask questions in plain English and get formatted results from a
+              database.
+            </p>
+            <small>LangChain · OpenAI · FastAPI · MySQL</small></a
+          >
+
+          <a
+            class="card"
+            href="https://github.com/mahesh-shali/ragrank"
+            target="_blank"
+            rel="noopener"
+            ><h3>ragrank (fork)</h3>
+            <p>
+              Exploring an open-source toolkit for evaluating LLM applications.
+            </p>
+            <small>Python · LLM evaluation</small></a
+          >
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>I’m open to new opportunities. The best way to reach me is email.</p>
+        <div class="btns">
+          <a class="btn p" href="mailto:maheshshali10@gmail.com"
+            >maheshshali10@gmail.com</a
+          ><a
+            class="btn"
+            href="https://huggingface.co/mahesh-e"
+            target="_blank"
+            rel="noopener"
+            >Hugging Face</a
+          ><a
+            class="btn"
+            href="https://dev.to/mahesh_shali_88b97776a489"
+            target="_blank"
+            rel="noopener"
+            >DEV</a
+          >
+        </div>
+      </section>
+      <footer>© Mahesh E · Bengaluru, India</footer>
+    </div>
+  </body>
+</html>
